@@ -1,0 +1,22 @@
+{
+    "data_root": "dataset/interm_data_2022", 
+    "output_dir": "run/tnt/", 
+    "num_glayer": 1, 
+    "aux_loss": true, 
+    "batch_size": 256, 
+    "n_epoch": 50, 
+    "num_workers": 16, 
+    "with_cuda": true, 
+    "multi_gpu": false, 
+    "local_rank": 0, 
+    "log_freq": 2, 
+    "lr": 0.0012, 
+    "warmup_epoch": 30, 
+    "lr_update_freq": 10, 
+    "lr_decay_rate": 0.3, 
+    "adam_weight_decay": 0.01, 
+    "adam_beta1": 0.9, 
+    "adam_beta2": 0.999, 
+    "resume_checkpoint": null, 
+    "resume_model": null
+}

@@ -415,8 +415,10 @@ def ref_copy(data):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-r", "--root", type=str, default="../dataset")
-    parser.add_argument("-d", "--dest", type=str, default="../dataset")
+    # parser.add_argument("-r", "--root", type=str, default="../dataset")
+    # parser.add_argument("-d", "--dest", type=str, default="../dataset")
+    parser.add_argument("-r", "--root", type=str, default="./dataset")
+    parser.add_argument("-d", "--dest", type=str, default="./dataset")
     parser.add_argument("-s", "--small", action='store_true', default=False)
     args = parser.parse_args()
 
@@ -424,7 +426,8 @@ if __name__ == "__main__":
     raw_dir = os.path.join(args.root, "raw_data")
     interm_dir = os.path.join(args.dest, "interm_data" if not args.small else "interm_data_small")
 
-    for split in ["train", "val", "test"]:
+    # for split in ["train", "val", "test"]:
+    for split in ["test"]:
         # construct the preprocessor and dataloader
         argoverse_processor = ArgoversePreprocessor(root_dir=raw_dir, split=split, save_dir=interm_dir)
         loader = DataLoader(argoverse_processor,

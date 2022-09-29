@@ -20,6 +20,8 @@ from core.optim_schedule import ScheduledOptim
 from core.util.viz_utils import show_pred_and_gt
 from core.loss import TNTLoss
 
+import pickle as pkl
+
 
 class TNTTrainer(Trainer):
     """
@@ -302,11 +304,19 @@ class TNTTrainer(Trainer):
         # plot the result
         if plot:
             fig, ax = plt.subplots()
+            print(len(forecasted_trajectories.keys()))
             for key in forecasted_trajectories.keys():
-                ax.set_xlim(-15, 15)
+                # ax.set_xlim(-15, 15)
                 show_pred_and_gt(ax, gt_trajectories[key], forecasted_trajectories[key])
                 plt.pause(3)
                 ax.clear()
+            # plt.savefig('myview_unlimited.jpg')
+            # save for official plot
+            # with open("gt_trajectories_files", "wb") as f:
+            #     pkl.dump(gt_trajectories, f)
+            
+            # with open("forecasted_trajectories_files", "wb") as f:
+            #     pkl.dump(forecasted_trajectories, f)
 
         # todo: save the output in argoverse format
         if save_pred:

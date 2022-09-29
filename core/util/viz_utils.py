@@ -25,3 +25,6 @@ def show_pred_and_gt(ax, y_gt, y_pred):
     for pred in y_pred:
         ax.plot(pred[:, 0], pred[:, 1], COLOR[1]+LINE[1])
 
+# to include the input trajectories and the map
+def viz_helper(ax, y_gt, y_pred):
+    pass

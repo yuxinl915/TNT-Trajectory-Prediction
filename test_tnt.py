@@ -52,13 +52,13 @@ def test(args):
         model_path=args.resume_model if hasattr(args, "resume_model") and args.resume_model else None
     )
 
-    trainer.test(miss_threshold=2.0, save_pred=True, convert_coordinate=True)
+    trainer.test(miss_threshold=2.0, plot=True, convert_coordinate=True)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("-r", "--data_root", type=str, default="dataset/interm_data_2022",
+    parser.add_argument("-r", "--data_root", type=str, default="dataset/interm_data_small",
                         help="root dir for datasets")
     parser.add_argument("-s", "--split", type=str, default="test")
 
@@ -75,7 +75,7 @@ if __name__ == "__main__":
                         # default="/home/jb/projects/Code/trajectory-prediction/TNT-Trajectory-Predition/run/tnt/05-21-07-33/checkpoint_iter26.ckpt",
                         help="resume a checkpoint for fine-tune")
     parser.add_argument("-rm", "--resume_model", type=str,
-                        default="/home/jb/Downloads/TNT/TNT/best_TNT.pth",
+                        default="./TNT/TNT/best_TNT.pth",
                         help="resume a model state for fine-tune")
 
     parser.add_argument("-d", "--save_dir", type=str, default="test_result")
